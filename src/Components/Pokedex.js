@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Pokemon from './Pokemon';
 import Spinner from './Spinner';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link,
-//   Routes
-// } from "react-router-dom";
+
 
 export default function Pokedex() {
 
@@ -36,10 +30,12 @@ export default function Pokedex() {
 
  
   useEffect(() => {
+    setLoading(true);
     fetchData((page - 1) * 10);
   }, [page]);
 
   const handleNextPage = () => {
+    setLoading(true);
     setPage(page + 1);
   };
 
@@ -81,7 +77,7 @@ export default function Pokedex() {
 
       <div className="row">
         {loading ? (
-          <p>Loading...</p>
+          <p><Spinner/></p>
         ) : (
           data.map((pokemon, index) => {
             const height = fetchedPokemonData[index]?.height; // Use optional chaining to avoid errors

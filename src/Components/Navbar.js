@@ -1,8 +1,4 @@
 
-
-
-//working below ------------
-
 import React, { useState } from 'react';
 import Pokemon from './Pokemon';
 
